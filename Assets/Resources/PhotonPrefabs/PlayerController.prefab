@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 504491906543532384}
   - component: {fileID: 8007929770144197343}
   - component: {fileID: 9140801886295035935}
+  - component: {fileID: 9145655064824585558}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -153,7 +154,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 9145655064824585558}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -191,6 +193,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &9145655064824585558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882938165700303376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5801074389764011995
 GameObject:
   m_ObjectHideFlags: 0

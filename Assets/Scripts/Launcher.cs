@@ -38,7 +38,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("title"); 
         Debug.Log("Joined Lobby");
-        PhotonNetwork.NickName = "Player" + Random.Range(1, 10);
+        PhotonNetwork.NickName = "Player" + Random.Range(1, 10).ToString("0000");
     }
 
    public void CreateRoom ()
@@ -55,6 +55,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("room");
         roomNameTExt.text = PhotonNetwork.CurrentRoom.Name;
+
+        Player[] players = PhotonNetwork.PlayerList;
+
+        for (int i = 0; i < players.Length; i++)
+        {
+
+            Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
+        }
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -73,6 +81,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.Instance.OpenMenu("loading");
+
+      
     }
 
     public override void OnLeftRoom()

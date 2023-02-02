@@ -74,6 +74,8 @@ public class playerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!PV.IsMine)
+            return;
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 

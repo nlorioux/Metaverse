@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class playerController : MonoBehaviour
 {
@@ -13,13 +14,18 @@ public class playerController : MonoBehaviour
     Vector3 moveAmount;
     Rigidbody rb;
 
+    PhotonView PV;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        PV = GetComponent<PhotonView>();
     }
 
     private void Update()
     {
+        if (!PV.IsMine)
+            return;
         Look();
         Move();
         Jump();

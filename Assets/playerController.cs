@@ -22,6 +22,14 @@ public class playerController : MonoBehaviour
         PV = GetComponent<PhotonView>();
     }
 
+    private void Start()
+    {
+        if (!PV.IsMine)
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+        }
+    }
+
     private void Update()
     {
         if (!PV.IsMine)

@@ -20,31 +20,30 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
     public override void OnEnable()
     {
+
+        Debug.Log("INSTANTIATED");
         base.OnEnable();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.activeSceneChanged += OnSceneLoaded;
     }
 
     public override void OnDisable()
     {
         base.OnDisable();
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.activeSceneChanged -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded (Scene scene, LoadSceneMode loadSceneMode)
+    void OnSceneLoaded (Scene current, Scene next)
     {
-        if (scene.buildIndex ==1) // we're in the game scene
+        if (current.buildIndex ==1 || next.buildIndex==1) // we're in the game scene
         {
+            Debug.Log("INSTANTIATED");
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
         }
-    }
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
     }
 }

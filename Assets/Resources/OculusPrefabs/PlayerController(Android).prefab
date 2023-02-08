@@ -45,10 +45,9 @@ GameObject:
   - component: {fileID: 7539347349882821022}
   - component: {fileID: 6007711974457289447}
   - component: {fileID: 504491906543532384}
-  - component: {fileID: 8007929770144197343}
   - component: {fileID: 9140801886295035935}
   - component: {fileID: 9145655064824585558}
-  - component: {fileID: 2455537214787724293}
+  - component: {fileID: 5397872644643679057}
   m_Layer: 0
   m_Name: PlayerController(Android)
   m_TagString: Untagged
@@ -160,24 +159,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8007929770144197343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882938165700303376}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6182652a3f2338e4daec3cfd98eacc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 107964646126768936}
-  mousSensitivity: 3
-  sprintSpeed: 6
-  walkSpeed: 3
-  jumpForce: 300
-  smoothTime: 0.15
 --- !u!54 &9140801886295035935
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,7 +191,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &2455537214787724293
+--- !u!114 &5397872644643679057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28e471c0c961741bcc7b5c99ac41d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 0}
+  cameraHolder: {fileID: 107964646126768936}
   mousSensitivity: 0
   sprintSpeed: 0
   walkSpeed: 0

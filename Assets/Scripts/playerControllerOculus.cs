@@ -33,11 +33,11 @@ public class playerControllerOculus : MonoBehaviour
 
     private void Update()
     {
-        if (!PV.IsMine)
+       /* if (!PV.IsMine)
             return;
         Look();
         Move();
-        Jump();
+        Jump();*/
        
 
        
@@ -74,9 +74,9 @@ public class playerControllerOculus : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!PV.IsMine)
+       /* if (!PV.IsMine)
             return;
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);*/
     }
 
 }

@@ -14,7 +14,11 @@ public class CanvasController : MonoBehaviour
             canvasOculus.SetActive(true);
             canvasComputer.SetActive(false);
 
-        }
+        } else if (UnityEditor.EditorApplication.isRemoteConnected)
+            {
+            Debug.Log("Hellooooooooo");
+            } 
+       
         else
         {
             canvasComputer.SetActive(true);

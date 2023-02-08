@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 504491906543532384}
   - component: {fileID: 9140801886295035935}
   - component: {fileID: 9145655064824585558}
-  - component: {fileID: 5397872644643679057}
+  - component: {fileID: 2741793247510169797}
   m_Layer: 0
   m_Name: PlayerController(Android)
   m_TagString: Untagged
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &5397872644643679057
+--- !u!114 &2741793247510169797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,15 +200,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882938165700303376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd28e471c0c961741bcc7b5c99ac41d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6182652a3f2338e4daec3cfd98eacc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraHolder: {fileID: 107964646126768936}
+  cameraHolder: {fileID: 0}
   mousSensitivity: 0
   sprintSpeed: 0
   walkSpeed: 0
   jumpForce: 0
   smoothTime: 0
+  isQuest: 1
 --- !u!1 &5801074389764011995
 GameObject:
   m_ObjectHideFlags: 0

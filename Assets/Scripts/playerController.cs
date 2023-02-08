@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour
 {
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mousSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
+    [SerializeField] bool isQuest;
 
     float verticalLookRotation;
     bool grounded;
@@ -35,9 +36,13 @@ public class playerController : MonoBehaviour
     {
         if (!PV.IsMine)
             return;
-        Look();
-        Move();
-        Jump();
+       if (!isQuest)
+        {
+            Look();
+            Move();
+            Jump();
+        }
+       
        
 
        
@@ -76,6 +81,7 @@ public class playerController : MonoBehaviour
     {
         if (!PV.IsMine)
             return;
+        if (!isQuest)
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 

@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public static RoomManager Instance;
     private void Awake()
     {
+        Debug.Log("roomManager awaken");
         if (Instance)
         {
             Destroy(gameObject);
@@ -44,6 +45,5 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
     }
 }

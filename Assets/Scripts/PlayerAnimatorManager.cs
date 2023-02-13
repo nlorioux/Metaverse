@@ -21,26 +21,20 @@ public class PlayerAnimatorManager : MonoBehaviour
     void Update()
     {
         // failSafe is missing Animator component on GameObject
-        if (!animator && gameObject.transform.childCount > 0)
+        if (!animator && gameObject.transform.childCount > 2)
         {
             animator = gameObject.transform.GetChild(2).GetComponent<Animator>();
         }
-
-        if (animator != null)
+        else if (animator && gameObject.transform.childCount > 1)
         {
             // deal with movement
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
-            // prevent negative Speed.
-            if (v < 0)
-            {
-                v = 0;
-            }
-
             // set the Animator Parameters
             animator.SetFloat("Speed", h * h + v * v);
-            animator.SetFloat("Direction", h, directionDampTime, Time.deltaTime);
+            animator.SetFloat("Direction", v, directionDampTime, Time.deltaTime);
+            Debug.Log
         }
     }
 }

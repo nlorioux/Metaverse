@@ -24,7 +24,9 @@ public class PlayerLoader : MonoBehaviour
 
             avatar.transform.parent = gameObject.transform;
             avatar.transform.position = avatar.transform.parent.position - new Vector3(0, 1f, 0);
+            avatar.transform.rotation = Quaternion.LookRotation(gameObject.transform.forward);
             avatar.GetComponent<Animator>().applyRootMotion = false;
+            //gameObject.GetComponent<Rigidbody>().mass = 1.5f;
             AvatarAnimatorHelper.SetupAnimator(args.Metadata.BodyType, avatar);
         };
         avatarLoader.LoadAvatar(avatarURL);

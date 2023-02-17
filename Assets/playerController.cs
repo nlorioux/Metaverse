@@ -9,7 +9,7 @@ public class playerController : MonoBehaviour
     [SerializeField] float mousSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
 
     float verticalLookRotation;
-    bool grounded;
+    public bool grounded;
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
     Rigidbody rb;
@@ -37,7 +37,7 @@ public class playerController : MonoBehaviour
             return;
         Look();
         Move();
-        Jump();
+        StartCoroutine(Jump());
        
 
        
@@ -50,10 +50,11 @@ public class playerController : MonoBehaviour
         moveAmount = Vector3.SmoothDamp(moveAmount, movDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
     } 
 
-    void Jump ()
+    private IEnumerator Jump ()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            yield return new WaitForSeconds(0.4f);
             rb.AddForce(transform.up * jumpForce);
         }
     }

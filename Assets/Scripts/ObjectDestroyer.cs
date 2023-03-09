@@ -8,6 +8,8 @@ public class ObjectDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+       // rb = GetComponent<Rigidbody>();
         Transform childTransform = objectToDestroyChild.transform.Find("HolderToDestroy");
         if (childTransform != null)
         {

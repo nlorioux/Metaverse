@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Oculus Quest 2 is connected");
             Debug.Log("Instanciate Player Controller");
             //Instantiate our player controoller
-            PhotonNetwork.Instantiate(Path.Combine("OculusPrefabs", "PlayerController(Android)"), Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate(Path.Combine("OculusPrefabs", "PlayerController(Android)"), new Vector3(0,0,2), Quaternion.identity);
         }
         else
         {

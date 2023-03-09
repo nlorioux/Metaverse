@@ -8,7 +8,7 @@ public class ObjectDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Transform childTransform = gameObject.transform.Find("HolderToDestroy");
+        Transform childTransform = objectToDestroyChild.transform.Find("HolderToDestroy");
         if (childTransform != null)
         {
             Debug.Log("Destroying");

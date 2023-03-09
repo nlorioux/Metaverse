@@ -7,17 +7,20 @@ public class PlayerAnimatorManager : MonoBehaviour
 {
 
     [SerializeField]
+    public float jumpSpeed = 5;
+    public float rotationSpeed;
+
     private float directionDampTime = 0.25f;
     private Animator animator;
-    private playerController playerMouvement;
-    private float groundAltitude;
+    private playerController playerMovement;
+    private float ySpeed;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerMouvement = GameObject.FindGameObjectsWithTag("Controller")[0].GetComponent<playerController>();
-        groundAltitude = 0;
+        playerMovement = GameObject.FindGameObjectsWithTag("Controller")[0].GetComponent<playerController>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,9 @@ public class PlayerAnimatorManager : MonoBehaviour
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
+            ySpeed += Physics.gravity.y * Time.deltaTime;
+
+            
             //check if we move with left or right arrow
             if (Input.GetKey("left")){
                 animator.SetBool("SideMoveLeft", true);
@@ -53,24 +59,33 @@ public class PlayerAnimatorManager : MonoBehaviour
             }
 
 
+            // set the Animator Parameters
+            float Speed = h * h + v * v;
+            animator.SetFloat("Speed", Speed);
+            animator.SetFloat("Direction", v, directionDampTime, Time.deltaTime);
+
+            Vector3 velocity = (h * h + v * v) * new Vector3(h, ySpeed, v);
+
             // deal with jump
-            /*if (Input.GetKeyDown("space") && playerMouvement.grounded)
+
+            if (Input.GetKeyDown("space") && playerMovement.grounded)
             {
                 animator.SetBool("IsJumping", true);
             }
-            else if (playerMouvement.grounded)
+            else if (!playerMovement.grounded)
             {
-                groundAltitude = transform.position.y;
-                animator.SetFloat("Altitude", 0);
+                animator.SetBool("IsFalling", true);
+                animator.SetBool("IsGrounded", false);
+            }
+            else if (playerMovement.grounded)
+            {
+                animator.SetBool("IsGrounded", true);
                 animator.SetBool("IsJumping", false);
+                animator.SetBool("IsFalling", false);
             }
-            else if (!playerMouvement.grounded)
-            {
-                animator.SetFloat("Altitude", transform.position.y - groundAltitude);
-                Debug.Log("IsJumping");
-            }
-            Debug.Log("Altitude : " + animator.GetFloat("Altitude"));
-            */
+
+            //playerMovement.transform.position.y = ySpeed * Time.deltaTime;
+            
 
             if (Input.GetKeyDown("m")){
                 animator.SetBool("IsWaving", true);
@@ -79,10 +94,6 @@ public class PlayerAnimatorManager : MonoBehaviour
             {
                 animator.SetBool("IsWaving", false);
             }
-
-            // set the Animator Parameters
-                animator.SetFloat("Speed", h * h + v * v);
-            animator.SetFloat("Direction", v, directionDampTime, Time.deltaTime);
         }
     }
 

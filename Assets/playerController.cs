@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour
 
     float verticalLookRotation;
     public bool grounded;
+    public float lastGroundedTime;
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
     Rigidbody rb;
@@ -37,7 +38,7 @@ public class playerController : MonoBehaviour
             return;
         Look();
         Move();
-        StartCoroutine(Jump());
+        Jump();
        
 
        
@@ -50,12 +51,12 @@ public class playerController : MonoBehaviour
         moveAmount = Vector3.SmoothDamp(moveAmount, movDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
     } 
 
-    private IEnumerator Jump ()
+    private void Jump ()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            yield return new WaitForSeconds(0.4f);
             rb.AddForce(transform.up * jumpForce);
+            //playerMovement.transform.position.y = ySpeed * Time.deltaTime;
         }
     }
 
@@ -71,6 +72,7 @@ public class playerController : MonoBehaviour
     public void SetGroundedState (bool _grounded)
     {
         grounded = _grounded;
+        lastGroundedTime = Time.time;
     }
 
     private void FixedUpdate()

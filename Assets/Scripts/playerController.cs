@@ -27,7 +27,12 @@ public class playerController : MonoBehaviour
     {
         if (!PV.IsMine)
         {
-            Destroy(GetComponentInChildren<GameObject>());
+            Transform childTransform = gameObject.transform.Find("HolderToDestroy");
+            if (childTransform != null)
+            {
+                GameObject childObject = childTransform.gameObject;
+                Destroy(childObject);
+            }
             Destroy(rb);
         }
     }

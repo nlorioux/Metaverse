@@ -27,12 +27,14 @@ public class playerController : MonoBehaviour
     {
         if (!PV.IsMine)
         {
-            Transform childTransform = gameObject.transform.Find("HolderToDestroy");
+            /*Transform childTransform = gameObject.transform.Find("HolderToDestroy");
             if (childTransform != null)
             {
                 GameObject childObject = childTransform.gameObject;
                 Destroy(childObject);
-            }
+            }*/
+            // I want to destroy the child of rb in this line
+            Destroy(rb.GetComponentInChildren<Camera>());
             Destroy(rb);
         }
     }
@@ -47,11 +49,6 @@ public class playerController : MonoBehaviour
             Move();
             Jump();
         }
-       
-       
-
-       
-
     }
 
     void Move()

@@ -214,12 +214,73 @@ Transform:
   m_GameObject: {fileID: 73431181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.78, y: -2.69, z: -4.09}
-  m_LocalScale: {x: 25.872602, y: 1.7513, z: 34.830647}
+  m_LocalScale: {x: 25.872602, y: 1.7513, z: 181.87}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1129404864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 504491906543532384, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 584991030541945315, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882938165700303376, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
+      propertyPath: m_Name
+      value: PlayerController(Android
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee957fc5d38b14d44bc26c333b58f692, type: 3}
 --- !u!1 &1327518934
 GameObject:
   m_ObjectHideFlags: 0

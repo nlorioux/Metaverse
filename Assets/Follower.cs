@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
-    public Transform parentTransform;
+    public Transform objectToFollow;
+    public float speed = 5f;
+    public Vector3 offset;
 
-    void Start()
+    private void Update()
     {
-        parentTransform = transform.parent;
-        //transform.parent = null;
-    }
+        // Check if the object to follow is set
+        if (objectToFollow != null)
+        {
+            // Calculate the direction to the target object
+            Vector3 direction = objectToFollow.position - transform.position;
 
-    void LateUpdate()
-    {
-        parentTransform.position =  Vector3.zero;
-        parentTransform.rotation = Quaternion.identity;
-
-        parentTransform.position = transform.position;
-        parentTransform.rotation = transform.rotation;
+            // Move towards the target object at a constant speed
+            transform.position += direction.normalized * speed * Time.deltaTime ;
+        }
     }
 }

@@ -1337,6 +1337,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4736826494511633792, guid: da0335607d1b72c4ab962d7c3d5923cc, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5384863043033450027, guid: da0335607d1b72c4ab962d7c3d5923cc, type: 3}
       propertyPath: m_Name
       value: PlayerController(Android)

@@ -11,7 +11,7 @@ public class playerController : MonoBehaviourPunCallbacks
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mousSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
     [SerializeField] bool isQuest;
-    string avatarLink = "https://models.readyplayer.me/640f12e15ff9a2cd66c48c70.glb";
+    [SerializeField] string avatarLink ;
     public Material mat;
     private GameObject avatar;
 

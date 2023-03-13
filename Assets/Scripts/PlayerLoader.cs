@@ -8,8 +8,12 @@ public class PlayerLoader : MonoBehaviour
 
     private GameObject avatar;
     //private GameObject avatarPUNPrefab;
-
     private void Start()
+    {
+        LoadAvatar();
+    }
+
+    private void LoadAvatar()
     {
         //LoadAvatar();
 

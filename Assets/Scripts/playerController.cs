@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Photon.Realtime;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mousSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
     [SerializeField] bool isQuest;
+    string avatarLink = "https://models.readyplayer.me/640f12e15ff9a2cd66c48c70.glb";
+    public Material mat;
 
     float verticalLookRotation;
     public bool grounded;
@@ -24,6 +28,22 @@ public class playerController : MonoBehaviour
         PV = GetComponent<PhotonView>();
     }
 
+    void LoadAvatar(string link)
+    {
+        mat.color = Color.red;
+    }
+    
+    void sendAvatarLink()
+    {
+        if (PV.IsMine)
+        {
+            Hashtable hash = new Hashtable();
+            hash.Add("avatarLink", avatarLink);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+       
+    } 
+
     private void Start()
     {
         if (!PV.IsMine)
@@ -37,6 +57,7 @@ public class playerController : MonoBehaviour
             // I want to destroy the child of rb in this line
             // Destroy(Cam.GetComponentInChildren<Camera>());
             Destroy(rb);
+            sendAvatarLink();
         }
     }
 
@@ -80,6 +101,14 @@ public class playerController : MonoBehaviour
     {
         grounded = _grounded;
         lastGroundedTime = Time.time;
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        if (! PV.IsMine && targetPlayer == PV.Owner)
+        {
+            LoadAvatar((string)changedProps["avatarLink"]);
+        }
     }
 
     private void FixedUpdate()

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ReadyPlayerMe;
+using TMPro;
 
 public class PlayerLoader : MonoBehaviour
 {
-    [SerializeField] string url;
+    [SerializeField]  TMP_InputField url;
     private GameObject avatar;
     //private GameObject avatarPUNPrefab;
     private void Start()
@@ -37,7 +38,7 @@ public class PlayerLoader : MonoBehaviour
             avatarLoader.LoadAvatar(avatarURL);
         } else
         {
-            avatarLoader.LoadAvatar(url);
+            avatarLoader.LoadAvatar(url.text);
         }
     }
 

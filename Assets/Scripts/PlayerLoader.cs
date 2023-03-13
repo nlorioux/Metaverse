@@ -5,8 +5,6 @@ using ReadyPlayerMe;
 
 public class PlayerLoader : MonoBehaviour
 {
-    [SerializeField]
-    private string avatarURL = "https://models.readyplayer.me/63dcc1189b552e12bccd75e8.glb";
 
     private GameObject avatar;
     //private GameObject avatarPUNPrefab;
@@ -29,6 +27,7 @@ public class PlayerLoader : MonoBehaviour
             //gameObject.GetComponent<Rigidbody>().mass = 1.5f;
             AvatarAnimatorHelper.SetupAnimator(args.Metadata.BodyType, avatar);
         };
+        string avatarURL = "https://models.readyplayer.me/640f12e15ff9a2cd66c48c70.glb";
         avatarLoader.LoadAvatar(avatarURL);
     }
 

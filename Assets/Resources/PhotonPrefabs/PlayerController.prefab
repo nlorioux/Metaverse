@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940fdd77aa5028f4a8d973d6776c645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatarURL: https://models.readyplayer.me/63dcc1189b552e12bccd75e8.glb
 --- !u!114 &2851785253519889542
 MonoBehaviour:
   m_ObjectHideFlags: 0

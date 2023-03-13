@@ -5,7 +5,6 @@ using ReadyPlayerMe;
 
 public class PlayerLoader : MonoBehaviour
 {
-
     private GameObject avatar;
     //private GameObject avatarPUNPrefab;
     private void Start()

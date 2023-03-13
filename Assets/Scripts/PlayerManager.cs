@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
         if (PV.IsMine)
         {
             CreateController();
-        }   
+        }
     }
 
     // Update is called once per frame

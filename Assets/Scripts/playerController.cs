@@ -42,6 +42,7 @@ public class playerController : MonoBehaviourPunCallbacks
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
        
+
     } 
 
     private void Start()
@@ -57,7 +58,11 @@ public class playerController : MonoBehaviourPunCallbacks
             // I want to destroy the child of rb in this line
             // Destroy(Cam.GetComponentInChildren<Camera>());
             Destroy(rb);
+           
+        } else
+        {
             sendAvatarLink();
+            Debug.Log("Fucking link is sent");
         }
     }
 

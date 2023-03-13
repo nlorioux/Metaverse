@@ -61,6 +61,7 @@ public class playerController : MonoBehaviourPunCallbacks
            
         } else
         {
+            LoadAvatar(avatarLink);
             sendAvatarLink();
             Debug.Log("Fucking link is sent");
         }
@@ -110,7 +111,7 @@ public class playerController : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if ( targetPlayer == PV.Owner)
+        if (!PV.IsMine && targetPlayer == PV.Owner)
         {
             LoadAvatar((string)changedProps["avatarLink"]);
             

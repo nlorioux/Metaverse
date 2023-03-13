@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4736826494511633792}
   - component: {fileID: 6294715189325309900}
   - component: {fileID: 1202418013}
+  - component: {fileID: 437924991100384896}
+  - component: {fileID: 7545869262610918685}
   m_Layer: 0
   m_Name: PlayerController(Android)
   m_TagString: Untagged
@@ -142,6 +144,34 @@ MonoBehaviour:
   jumpForce: 0
   smoothTime: 0
   isQuest: 0
+  grounded: 0
+  lastGroundedTime: 0
+--- !u!114 &437924991100384896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384863043033450027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fdd77aa5028f4a8d973d6776c645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7545869262610918685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384863043033450027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75edde4b0323504a9156f196982ff04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 5
+  rotationSpeed: 0
 --- !u!1 &5384863043171873428
 GameObject:
   m_ObjectHideFlags: 0

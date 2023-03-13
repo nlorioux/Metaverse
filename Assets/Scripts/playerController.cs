@@ -10,7 +10,8 @@ public class playerController : MonoBehaviour
     [SerializeField] bool isQuest;
 
     float verticalLookRotation;
-    bool grounded;
+    public bool grounded;
+    public float lastGroundedTime;
     Vector3 smoothMoveVelocity;
     Vector3 moveAmount;
     Rigidbody rb;
@@ -57,11 +58,12 @@ public class playerController : MonoBehaviour
         moveAmount = Vector3.SmoothDamp(moveAmount, movDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
     } 
 
-    void Jump ()
+    private void Jump ()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.AddForce(transform.up * jumpForce);
+            //playerMovement.transform.position.y = ySpeed * Time.deltaTime;
         }
     }
 
@@ -77,6 +79,7 @@ public class playerController : MonoBehaviour
     public void SetGroundedState (bool _grounded)
     {
         grounded = _grounded;
+        lastGroundedTime = Time.time;
     }
 
     private void FixedUpdate()

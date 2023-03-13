@@ -48,9 +48,11 @@ GameObject:
   - component: {fileID: 8007929770144197343}
   - component: {fileID: 9140801886295035935}
   - component: {fileID: 9145655064824585558}
+  - component: {fileID: 4173883546158355667}
+  - component: {fileID: 2851785253519889542}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +89,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882938165700303376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -178,6 +180,8 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   isQuest: 0
+  grounded: 0
+  lastGroundedTime: 0
 --- !u!54 &9140801886295035935
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,6 +214,32 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &4173883546158355667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882938165700303376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fdd77aa5028f4a8d973d6776c645d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2851785253519889542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882938165700303376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75edde4b0323504a9156f196982ff04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 5
+  rotationSpeed: 0
 --- !u!1 &5801074389764011995
 GameObject:
   m_ObjectHideFlags: 0

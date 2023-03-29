@@ -29,7 +29,7 @@ public class GrabSmartphone : MonoBehaviour
         if (Input.touchCount > 0)
         {
             theTouch = Input.GetTouch(0);
-            if (hasSelected && (lastSelectedObject.transform.position - transform.position).magnitude > 4f)
+            if (hasSelected && (lastSelectedObject.transform.position - transform.position).magnitude > 6f)
             {
                 lastSelectedObject.GetComponent<Renderer>().material.color = lastColor;
                 hasSelected = false;

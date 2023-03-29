@@ -1086,7 +1086,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 947645504}
   _joystick: {fileID: 1457568690}
   _animator: {fileID: 947645500}
-  _movespeed: 6
+  _movespeed: 5
 --- !u!65 &947645503
 BoxCollider:
   m_ObjectHideFlags: 0

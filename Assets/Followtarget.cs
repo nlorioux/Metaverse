@@ -17,7 +17,8 @@ public class Followtarget : MonoBehaviour
         {
             transform.position = target.position + new Vector3(0f, 1.6f, 0.14f);
         }
-      
+
+
     }
 
     public void First()

@@ -16,6 +16,7 @@ public class PlayerControllerPhone : MonoBehaviour
     [SerializeField] private GameObject throwButton;
     private bool wave = false;
     private Transform lastGrabbedParent;
+   // private bool wave = false;
 
     // check if the animation is playing or not
     bool AnimatorIsPlaying()
@@ -30,11 +31,11 @@ public class PlayerControllerPhone : MonoBehaviour
     private void FixedUpdate()
     {
         //Walk animation
-        _rigidbody.velocity = new Vector3(_joystick.Horizontal * _movespeed, _rigidbody.velocity.y, _joystick.Vertical * _movespeed);
+    
         if (_joystick.Vertical != 0 || _joystick.Horizontal != 0)
         {
+            _rigidbody.velocity = new Vector3(_joystick.Horizontal * _movespeed, _rigidbody.velocity.y, _joystick.Vertical * _movespeed);
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
-           // _animator.Play("Walking");
             _animator.SetBool("isWalking", true); 
         }
         else { _animator.SetBool("isWalking", false); }

@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+using Photon.Realtime;
+using ReadyPlayerMe;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject cameraHolder;
     [SerializeField] float mousSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
     [SerializeField] bool isQuest;
+    [SerializeField] string avatarLink ;
+    public Material mat;
+    private GameObject avatar;
 
     float verticalLookRotation;
     public bool grounded;
@@ -24,6 +30,21 @@ public class playerController : MonoBehaviour
         PV = GetComponent<PhotonView>();
     }
 
+    void LoadAvatar1(string link)
+    {
+        mat.color = Color.red;
+    }
+    
+    void sendAvatarLink()
+    {
+        if (PV.IsMine)
+        {
+            Hashtable hash = new Hashtable();
+            hash.Add("avatarLink", avatarLink);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+    } 
+
     private void Start()
     {
         if (!PV.IsMine)
@@ -37,6 +58,12 @@ public class playerController : MonoBehaviour
             // I want to destroy the child of rb in this line
             // Destroy(Cam.GetComponentInChildren<Camera>());
             Destroy(rb);
+           
+        } else
+        {
+            LoadAvatar(avatarLink);
+            sendAvatarLink();
+            Debug.Log("Fucking link is sent");
         }
     }
 
@@ -82,6 +109,41 @@ public class playerController : MonoBehaviour
         lastGroundedTime = Time.time;
     }
 
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        if (!PV.IsMine && targetPlayer == PV.Owner)
+        {
+            LoadAvatar((string)changedProps["avatarLink"]);
+            
+        }
+    }
+    private void LoadAvatar(string link)
+    {
+        //LoadAvatar();
+
+        //ApplicationData.Log();
+        //avatarPUNPrefab = GameObject.FindGameObjectWithTag("Controller");
+        var avatarLoader = new AvatarLoader();
+        avatarLoader.OnCompleted += (_, args) =>
+        {
+            avatar = args.Avatar;
+
+            avatar.transform.parent = gameObject.transform;
+            avatar.transform.position = avatar.transform.parent.position - new Vector3(0, 1f, 0);
+            avatar.transform.rotation = Quaternion.LookRotation(gameObject.transform.forward);
+            avatar.GetComponent<Animator>().applyRootMotion = false;
+            //gameObject.GetComponent<Rigidbody>().mass = 1.5f;
+            AvatarAnimatorHelper.SetupAnimator(args.Metadata.BodyType, avatar);
+        };
+        string avatarURL = "https://models.readyplayer.me/640f12e15ff9a2cd66c48c70.glb";
+        avatarLoader.LoadAvatar(link);
+    }
+
+
+    private void OnDestroy()
+    {
+        if (avatar != null) Destroy(avatar);
+    }
     private void FixedUpdate()
     {
         if (!PV.IsMine)
@@ -89,5 +151,7 @@ public class playerController : MonoBehaviour
         if (!isQuest)
         rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
+
+
 
 }

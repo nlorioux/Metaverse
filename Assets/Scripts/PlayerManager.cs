@@ -17,13 +17,7 @@ public class PlayerManager : MonoBehaviour
         if (PV.IsMine)
         {
             CreateController();
-        }   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 
     void CreateController()
@@ -42,9 +36,7 @@ public class PlayerManager : MonoBehaviour
             Debug.Log("Instanciate Player Controller");
             //Instantiate our player controoller
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerController"), Vector3.zero, Quaternion.identity);
-        }
-       
-       
+        } 
     }
 
 }

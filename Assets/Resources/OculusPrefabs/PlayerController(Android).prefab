@@ -144,6 +144,8 @@ MonoBehaviour:
   jumpForce: 0
   smoothTime: 0
   isQuest: 0
+  avatarLink: 
+  mat: {fileID: 0}
   grounded: 0
   lastGroundedTime: 0
 --- !u!114 &437924991100384896
@@ -158,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940fdd77aa5028f4a8d973d6776c645d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  url: 
 --- !u!114 &7545869262610918685
 MonoBehaviour:
   m_ObjectHideFlags: 0

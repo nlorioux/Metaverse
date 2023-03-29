@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ReadyPlayerMe;
+using TMPro;
 
 public class PlayerLoader : MonoBehaviour
 {
-
+    [SerializeField]  TMP_InputField url;
     private GameObject avatar;
     //private GameObject avatarPUNPrefab;
-
     private void Start()
+    {
+        LoadAvatar();
+    }
+
+    private void LoadAvatar()
     {
         //LoadAvatar();
 
@@ -28,7 +33,13 @@ public class PlayerLoader : MonoBehaviour
             AvatarAnimatorHelper.SetupAnimator(args.Metadata.BodyType, avatar);
         };
         string avatarURL = "https://models.readyplayer.me/640f12e15ff9a2cd66c48c70.glb";
-        avatarLoader.LoadAvatar(avatarURL);
+       if (url == null)
+        {
+            avatarLoader.LoadAvatar(avatarURL);
+        } else
+        {
+            avatarLoader.LoadAvatar(url.text);
+        }
     }
 
 

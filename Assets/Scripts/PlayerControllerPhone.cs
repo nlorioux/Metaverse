@@ -6,11 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class PlayerControllerPhone : MonoBehaviour
 {
+    [SerializeField] private GameObject rightHandIndex2;
+    [SerializeField] private GrabSmartphone grabSmartphone;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private FixedJoystick _joystick;
     [SerializeField] private Animator _animator;
     [SerializeField] private float _movespeed;
+    [SerializeField] private GameObject grabButton;
+    [SerializeField] private GameObject throwButton;
     private bool wave = false;
+    private Transform lastGrabbedParent;
 
     // check if the animation is playing or not
     bool AnimatorIsPlaying()
@@ -52,6 +57,26 @@ public class PlayerControllerPhone : MonoBehaviour
 
     }
 
-   
+    public void Grab()
+    {
+        grabSmartphone.lastSelectedObject.GetComponent<Rigidbody>().isKinematic = true;
+        grabSmartphone.lastSelectedObject.GetComponent<Rigidbody>().detectCollisions = false;
+        lastGrabbedParent = grabSmartphone.lastSelectedObject.transform;
+        grabSmartphone.lastSelectedObject.transform.parent = rightHandIndex2.transform;
+        grabSmartphone.lastSelectedObject.transform.localPosition = new Vector3(0.0284f, -0.0064f, 0.0353f);
+        grabSmartphone.lastSelectedObject.GetComponent<Renderer>().material.color = grabSmartphone.lastColor;
+        throwButton.SetActive(true);
+        grabButton.SetActive(false);
+
+    }
+
+    public void Throw()
+    {
+        grabSmartphone.lastSelectedObject.transform.parent = null;
+        grabSmartphone.lastSelectedObject.GetComponent<Rigidbody>().isKinematic = false;
+        grabSmartphone.lastSelectedObject.GetComponent<Rigidbody>().detectCollisions = true;
+        grabSmartphone.lastSelectedObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward);
+        throwButton.SetActive(false);
+    }
 
 }
